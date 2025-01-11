@@ -1,12 +1,12 @@
 package Week1;
 
-public class ChangeBaseNumber {
+public class Lab11_ChangeBaseNumber {
 
     private int inputBase;   
     private int outputBase;  
     private String inputValue;
 
-    public ChangeBaseNumber(int inputBase, int outputBase, String inputValue) {
+    public Lab11_ChangeBaseNumber(int inputBase, int outputBase, String inputValue) {
         this.inputBase = inputBase;
         this.outputBase = outputBase;
         this.inputValue = inputValue;

@@ -63,7 +63,7 @@ public class Test {
         System.out.print("Enter the size of the array: ");
         int size = sc.nextInt();
         
-        LinearSearch ls = new LinearSearch(size);
+        Lab10_LinearSearch ls = new Lab10_LinearSearch(size);
         ls.addValue();
 
         System.out.print("Enter the number to search: ");
@@ -107,7 +107,7 @@ public class Test {
             inputValue = sc.nextLine();
 
             int baseInput = (inputBase == 1) ? 2 : (inputBase == 2) ? 10 : 16;
-            ChangeBaseNumber converter = new ChangeBaseNumber(inputBase, outputBase, inputValue);
+            Lab11_ChangeBaseNumber converter = new Lab11_ChangeBaseNumber(inputBase, outputBase, inputValue);
             int decimalValue = converter.convertToDecimal(inputValue, baseInput);
 
             if (decimalValue == -1) {
@@ -142,7 +142,7 @@ public class Test {
 //    lab50
     public static void calculationProgram() {
         Scanner sc = new Scanner(System.in);
-        CalculationProgram cp = new CalculationProgram(0, 0, 0);
+        Lab50_CalculationProgram cp = new Lab50_CalculationProgram(0, 0, 0);
         int choice;
         do {
             cp.menu();

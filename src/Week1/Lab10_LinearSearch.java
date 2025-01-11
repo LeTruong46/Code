@@ -2,10 +2,10 @@ package Week1;
 
 import java.util.Random;
 
-public class LinearSearch {
+public class Lab10_LinearSearch {
     private int[] array;
 
-    public LinearSearch(int n) {
+    public Lab10_LinearSearch(int n) {
         this.array = new int[n];
     }
     

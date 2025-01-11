@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CalculationProgram {
+public class Lab50_CalculationProgram {
     private Scanner sc = new Scanner(System.in);
     private int a;
     private int b;
     private int c;
 
-    public CalculationProgram(int a, int b, int c) {
+    public Lab50_CalculationProgram(int a, int b, int c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -102,27 +102,6 @@ public class CalculationProgram {
                 return Integer.parseInt(sc.nextLine());
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a valid integer.");
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-        CalculationProgram program = new CalculationProgram(0, 0, 0);
-        while (true) {
-            program.menu();
-            int choice = program.getValidInteger("Choose an option: ");
-            switch (choice) {
-                case 1:
-                    program.calculateEquation();
-                    break;
-                case 2:
-                    program.calculateQuadraticEquation();
-                    break;
-                case 3:
-                    System.out.println("Exiting program...");
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please choose again.");
             }
         }
     }
