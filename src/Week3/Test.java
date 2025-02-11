@@ -13,7 +13,7 @@ public class Test {
             System.out.println("3. Binary Search Algorithm.");
             System.out.println("4. Exit...!");
             System.out.print("Enter the program you want to run: ");
-            num = sc.nextInt();
+            num = Integer.parseInt(sc.nextLine());
             
             switch (num) {
                 case 1:
@@ -32,7 +32,7 @@ public class Test {
                     System.out.println("Error: Invalid choice...");
             }
         } while (num != 4);
-        sc.close();
+//        sc.close();
     }
     
     static void Binaryearchalgorithm (){
@@ -71,17 +71,10 @@ public class Test {
     }
     
     static void Quicksortalgorithm(){
-        Scanner scanner = new Scanner(System.in);
         int n;
-        
-        do {
-            System.out.print("Enter a positive number: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Invalid input! Please enter a positive integer.");
-                scanner.next(); 
-            }
-            n = scanner.nextInt();
-        } while (n <= 0);
+        do {            
+           n = Utilizer.checkNumber();
+        } while (n == -1);
         
         Short04_Quicksortalgorithm program = new Short04_Quicksortalgorithm(n);
         program.addValues();
@@ -89,25 +82,18 @@ public class Test {
         System.out.println("Unsorted Array:");
         program.showArray();
         
-        program.quickSort(0, n - 1);
+        program.quickSort(program.getArray(), 0, n - 1);
         
         System.out.println("Sorted Array:");
         program.showArray();
     }
     
     static void Bubblesortprogram(){
-        Scanner scanner = new Scanner(System.in);
         int n;
-        
-        do {
-            System.out.print("Enter a positive number: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Invalid input! Please enter a positive integer.");
-                scanner.next();
-            }
-            n = scanner.nextInt();
-        } while (n <= 0);
-        
+        do {            
+           n = Utilizer.checkNumber();
+        } while (n == -1);
+
         Short01_Bubblesortprogram program = new Short01_Bubblesortprogram(n);
         program.addValues();
         
