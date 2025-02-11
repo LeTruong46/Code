@@ -22,4 +22,15 @@ public class Utilizer {
             }
         }
     }
+    
+    public static int checkInt(){
+        while (true) {            
+            System.out.print("Enter a number: ");
+            try {
+                int input = Integer.parseInt(sc.nextLine());
+            } catch (Exception e) {
+                return -1;
+            }
+        }
+    }
 }

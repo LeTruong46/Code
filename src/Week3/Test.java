@@ -12,8 +12,7 @@ public class Test {
             System.out.println("2. Quick Sort Algorithm.");
             System.out.println("3. Binary Search Algorithm.");
             System.out.println("4. Exit...!");
-            System.out.print("Enter the program you want to run: ");
-            num = Integer.parseInt(sc.nextLine());
+            num = Utilizer.checkInt();
             
             switch (num) {
                 case 1:
@@ -32,21 +31,16 @@ public class Test {
                     System.out.println("Error: Invalid choice...");
             }
         } while (num != 4);
-//        sc.close();
+        sc.close();
     }
     
     static void Binaryearchalgorithm (){
         Scanner scanner = new Scanner(System.in);
         int n;
+        do {            
+           n = Utilizer.checkNumber();
+        } while (n == -1);
         
-        do {
-            System.out.print("Enter a positive number: ");
-            while (!scanner.hasNextInt()) {
-                System.out.println("Invalid input! Please enter a positive integer.");
-                scanner.next();
-            }
-            n = scanner.nextInt();
-        } while (n <= 0);
         
         Short06_Binaryearchalgorithm program = new Short06_Binaryearchalgorithm(n);
         program.addValues();
