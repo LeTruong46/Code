@@ -54,7 +54,7 @@ public class Test {
         System.out.println("Unsorted Array:");
         program.showArray();
         
-        program.quickSort(0, n - 1);
+        program.quickSort(program.getArray(), 0, n - 1);
         
         System.out.println("Sorted Array:");
         program.showArray();
