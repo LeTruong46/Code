@@ -1,12 +1,12 @@
 package Week4;
 
-public class Students {
+public class Long21_Students {
     private String ID;
     private String studentName;
-    private int semester;
+    private String semester;
     private String courseName;
 
-    public Students(String ID, String studentName, int semester, String courseName) {
+    public Long21_Students(String ID, String studentName, String semester, String courseName) {
         this.ID = ID;
         this.studentName = studentName;
         this.semester = semester;
@@ -29,11 +29,11 @@ public class Students {
         this.studentName = studentName;
     }
 
-    public int getSemester() {
+    public String getSemester() {
         return semester;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(String semester) {
         this.semester = semester;
     }
 
