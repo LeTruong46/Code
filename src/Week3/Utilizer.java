@@ -1,35 +1,33 @@
-
 package Week3;
 
 import java.util.Scanner;
 
 public class Utilizer {
     static Scanner sc = new Scanner(System.in);
-    
-    public static int checkNumber(){
-        while (true) {            
-            System.out.print("Enter a number: ");
+
+    public static int checkNumber() {
+        while (true) {
+            System.out.print("Enter a number (>= 2): ");
             try {
                 int input = Integer.parseInt(sc.nextLine());
-                if(input >= 2){
+                if (input >= 2) {
                     return input;
                 } else {
-                    System.out.println("Please enter the number with value >= 2");
-                    return -1;
+                    System.out.println("Please enter a number with value >= 2.");
                 }
-            } catch (Exception e) {
-                System.out.println("Error!!!");
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input! Please enter an integer.");
             }
         }
     }
-    
-    public static int checkInt(){
-        while (true) {            
-            System.out.print("Enter a number: ");
+
+    public static int checkInt() {
+        while (true) {
+            System.out.print("Enter a menu option: ");
             try {
-                int input = Integer.parseInt(sc.nextLine());
-            } catch (Exception e) {
-                return -1;
+                return Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input! Please enter an integer.");
             }
         }
     }

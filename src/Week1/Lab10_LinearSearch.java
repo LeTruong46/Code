@@ -27,6 +27,8 @@ public class Lab10_LinearSearch {
     }
     
     int searchValue(int value){
+        //
+        
         for(int i = 0; i < array.length; i++){
             if(array[i] == value) return i;
         }
