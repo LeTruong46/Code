@@ -1,23 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Week2;
 
 import java.util.Scanner;
 
-/**
- *
- * @author leman
- */
 public class Short51_DevelopAComputerProgram {
     
     static Scanner scanner = new Scanner(System.in);
     static double result = 0;
-    public static void main(String[] args) {
+    public void menu() {
         boolean exit = false;
         while (!exit) {
-            hienThiMenu();
+            System.out.println("\n---- Menu May Tinh ----");
+            System.out.println("1. May Tinh Thuong");
+            System.out.println("2. May Tinh BMI");
+            System.out.println("3. Thoat");
             int luaChon = nhapSoNguyen("Chon mot lua chon: ");
             switch (luaChon) {
                 case 1:
@@ -35,13 +31,7 @@ public class Short51_DevelopAComputerProgram {
             }
         }
     }
-    public static void hienThiMenu() {
-        System.out.println("\n---- Menu May Tinh ----");
-        System.out.println("1. May Tinh Thuong");
-        System.out.println("2. May Tinh BMI");
-        System.out.println("3. Thoat");
-    }
-    public static void mayTinhThuong() {
+    public void mayTinhThuong() {
         double so1 = nhapSoThuc("Nhap so thu nhat: ");
         String phepTinh = nhapPhepTinh();
         double so2 = nhapSoThuc("Nhap so thu hai: ");
@@ -72,7 +62,7 @@ public class Short51_DevelopAComputerProgram {
         }
         System.out.println("Ket qua: " + result);
     }
-    public static void tinhBMI() {
+    public void tinhBMI() {
         double canNang = nhapSoThuc("Nhap can nang cua ban (kg): ");
         double chieuCao = nhapSoThuc("Nhap chieu cao cua ban (m): ");
         if (chieuCao > 0) {
@@ -83,7 +73,7 @@ public class Short51_DevelopAComputerProgram {
             System.out.println("Loi: Chieu cao phai lon hon 0.");
         }
     }
-    public static void hienThiTrangThaiBMI(double bmi) {
+    public void hienThiTrangThaiBMI(double bmi) {
         if (bmi < 19) {
             System.out.println("Trang thai: Duoi chuan.");
         } else if (bmi >= 19 && bmi <= 25) {
@@ -96,7 +86,7 @@ public class Short51_DevelopAComputerProgram {
             System.out.println("Trang thai: Rat beo - can giam can ngay lap tuc.");
         }
     }
-    public static double nhapSoThuc(String thongDiep) {
+    public double nhapSoThuc(String thongDiep) {
         while (true) {
             System.out.print(thongDiep);
             if (scanner.hasNextDouble()) {
@@ -107,7 +97,7 @@ public class Short51_DevelopAComputerProgram {
             }
         }
     }
-    public static String nhapPhepTinh() {
+    public String nhapPhepTinh() {
         while (true) {
             System.out.print("Nhap phep tinh (+, -, *, /, ^): ");
             String phepTinh = scanner.next();
@@ -118,7 +108,7 @@ public class Short51_DevelopAComputerProgram {
             }
         }
     }
-    public static int nhapSoNguyen(String thongDiep) {
+    public int nhapSoNguyen(String thongDiep) {
         while (true) {
             System.out.print(thongDiep);
             if (scanner.hasNextInt()) {

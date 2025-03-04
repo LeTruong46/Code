@@ -7,26 +7,65 @@ import java.util.Scanner;
 
 public class Short54_ContactManager {
     private List<Short54_Contact> contacts = new ArrayList<>();
+    private Scanner sc = new Scanner(System.in);
     private int idCounter = 1;
 
-    public void addContact(String firstName, String lastName, String group, String address, String phone) {
-        if (!Validation.isValidPhone(phone)) {
-            System.out.println("Invalid phone number format!");
-            return;
-        }
+    public void addContact() {
+        System.out.print("Enter first name: ");
+        String firstName = sc.nextLine();
+        System.out.print("Enter last name: ");
+        String lastName = sc.nextLine();
+        System.out.print("Enter group: ");
+        String group = sc.nextLine();
+        System.out.print("Enter address: ");
+        String address = sc.nextLine();
+        System.out.println("Phone: ");
+        String phone;
+        do {            
+            phone = getStringInput("Enter Phone (Valid formats: \n"
+                    + "• 1234567890\n"
+                    + "• 123-456-7890 \n"
+                    + "• 123-456-7890 x1234\n"
+                    + "• 123-456-7890 ext1234\n"
+                    + "• (123)-456-7890\n"
+                    + "• 123.456.7890\n"
+                    + "• 123 456 7890)\n"
+                    + "Enter: ");
+        } while (!isValidPhone(phone));
         contacts.add(new Short54_Contact(idCounter++, firstName, lastName, group, address, phone));
         System.out.println("Successful");
     }
-
-    public void displayAll() {
-        System.out.println("ID\tName\tGroup\tAddress\tPhone");
-        for (Short54_Contact c : contacts) {
-            System.out.println(c);
+    
+    private static boolean isValidPhone(String phone) {
+        String regex = "^(\\d{10}|(\\d{3}[-\\.\\s]?){2}\\d{4}|\\d{3}-\\d{3}-\\d{4} x\\d{1,5}|\\d{3}-\\d{3}-\\d{4} ext\\d{1,5})$";
+        return phone.matches(regex);
+    }
+    
+    public String getStringInput(String prompt){
+        System.out.println(prompt);
+        while (true) {            
+            String result = sc.nextLine().trim();
+            if(result.isEmpty()){
+                System.out.println("Input cannot be empty. Please try again.");
+                System.out.print("Enter again: ");
+            } else{
+                return result;
+            }
         }
     }
+    
+    public void displayAll() {
+        System.out.println("***** Display all Contact *****");
+        System.out.printf("%-5s %-20s %-12s %-12s %-8s %-15s %-15s\n", "ID", "Name", "First Name", "Last Name", "Group", "Address", "Phone");
+            for (Short54_Contact c : contacts) {
+                System.out.println(c);
+            }
+    }
 
-    public void deleteContact(int id) {
+    public void deleteContact() {
         Iterator<Short54_Contact> iterator = contacts.iterator();
+        System.out.print("Enter Contact ID to delete: ");
+        int id = sc.nextInt();
         while (iterator.hasNext()) {
             if (iterator.next().getID()== id) {
                 iterator.remove();
@@ -37,9 +76,7 @@ public class Short54_ContactManager {
         System.out.println("Contact ID not found.");
     }
     public void menu(){
-        Short54_ContactManager manager = new Short54_ContactManager();
-        Scanner sc = new Scanner(System.in);
-         while (true) {
+        while (true) {
             System.out.println("========= Contact program =========");
             System.out.println("1. Add a Contact");
             System.out.println("2. Display all Contacts");
@@ -51,27 +88,13 @@ public class Short54_ContactManager {
             
             switch (choice) {
                 case 1:
-                    System.out.println("-------- Add a Contact --------");
-                    System.out.print("Enter First Name: ");
-                    String firstName = sc.nextLine();
-                    System.out.print("Enter Last Name: ");
-                    String lastName = sc.nextLine();
-                    System.out.print("Enter Group: ");
-                    String group = sc.nextLine();
-                    System.out.print("Enter Address: ");
-                    String address = sc.nextLine();
-                    System.out.print("Enter Phone: ");
-                    String phone = sc.nextLine();
-                    manager.addContact(firstName, lastName, group, address, phone);
+                    addContact();
                     break;
                 case 2:
-                    System.out.println("***** Display all Contact *****");
-                    manager.displayAll();
+                    displayAll();
                     break;
                 case 3:
-                    System.out.print("Enter Contact ID to delete: ");
-                    int id = sc.nextInt();
-                    manager.deleteContact(id);
+                    deleteContact();
                     break;
                 case 4:
                     System.out.println("Exiting...");

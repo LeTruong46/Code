@@ -195,9 +195,4 @@ public class Short109_Management {
             }
         } while (choice != 6);
     }
-    
-    public static void main(String[] args) {
-        Short109_Management mg = new Short109_Management();
-        mg.menuCourse();
-    }
 }

@@ -64,7 +64,16 @@ public class Short54_Contact {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    @Override
     public String toString() {
-        return ID + "\t" + firstName + " " + lastName + "\t" + group + "\t" + address + "\t" + phone;
-    }
+        return String.format("%-5d %-20s %-12s %-12s %-8s %-15s %-15s", 
+            ID, 
+            firstName + " " + lastName, 
+            firstName, 
+            lastName, 
+            group, 
+            address, 
+            phone);
+    }  
 }
